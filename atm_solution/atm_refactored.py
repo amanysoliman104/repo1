@@ -1,36 +1,52 @@
-def withdrow(balance,requst):
+
+class ATM():
     
-    print " current balance = " + str(balance) 
-    print " balance after refactored  " + str(balance - requst)
-    atm_list = []
-    if  requst > balance :
-        print("Can't give you all this money !!")
-    elif requst < 0 :
-        print("More than zero plz!")
-    else :
-        while requst > 0 :
-            if requst >= 100 :
-                atm_list.append(100) 
-                requst = requst - 100
-                print ("give 100")
-            elif requst >= 50 :
-                atm_list.append(50)
-                requst = requst - 50
-                print ("give 50")
-            elif requst >= 10 :
-                atm_list.append(10)
-                requst = requst - 10
-                print ("give 10")
-            elif requst >= 5 :
-                atm_list.append(5) 
-                requst = requst - 5
-                print("give 5")
-            else : 
-                atm_list.append(requst) 
-                print "give" + " " + str(requst)
-                requst = requst - requst
- 
+    """docstring for ClassName"""
+    def __init__(self, balance,bank_name):
+        
+        self.balance = balance 
+        self.bank_name = bank_name
+
+    def withdrow(self,requst):
+
+
+        print "welcom " + str(self.bank_name)
+        print " current balance =" + str(self.balance) 
+        print " balance after refactored  " + str(self.balance - requst)
+        atm_list = []
+        if  requst > self.balance :
+            print("Can't give you all this money !!")
+        elif requst < 0 :
+            print("More than zero plz!")
+        else :
+            while requst > 0 :
+                if requst >= 100 :
+                    atm_list.append(100) 
+                    requst = requst - 100
+                    print ("give 100")
+                elif requst >= 50 :
+                    atm_list.append(50)
+                    requst = requst - 50
+                    print ("give 50")
+                elif requst >= 10 :
+                    atm_list.append(10)
+                    requst = requst - 10
+                    print ("give 10")
+                elif requst >= 5 :
+                    atm_list.append(5) 
+                    requst = requst - 5
+                    print("give 5")
+                else : 
+                    atm_list.append(requst) 
+                    print "give" + " " + str(requst)
+                    requst = requst - requst
+     
+atm1 = ATM(1000,"sara bank")
+atm1.withdrow(530)
+atm2 = ATM(500,"baraka bank")
+atm2.withdrow(220)
+
      
 
-withdrow(500,277) 
+
               
