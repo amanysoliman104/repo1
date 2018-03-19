@@ -1,10 +1,12 @@
 class Members :
 
-
+    
 	def __init__ (self , name , age):
 
 		self.name = name
 		self.age = age
+		self.id 
+
 
 		
 
@@ -17,17 +19,4 @@ class Posts	:
 		self.content = content
 
 #************************************************************	
-class Members_stores :
 
-	def add(member):
-		
-
-	def get_all():
-
-		
-#**************************************************************
-class Posts_stores :
-	def add(posts):
-
-	def get_all():
-				
