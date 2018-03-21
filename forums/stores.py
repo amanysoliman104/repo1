@@ -14,10 +14,6 @@ class Members_stores :
         
 
         
-
-
-        
-
     def get_all(self):
         print("all members")
         return Members_stores.members 
@@ -25,7 +21,7 @@ class Members_stores :
     
 
     
-    def get_by_id(self , id) :
+    def get_by_id(self, id) :
         for count in Members_stores.members :
             if count.id == id :
                 return  count 
@@ -37,10 +33,28 @@ class Members_stores :
 
 
     def entity_exists(self, member) :
-        if Members_stores.get_by_id(member.id) == member :
+        if self.get_by_id(member.id) == member :
             return "true"
         else :
             return "false"
+
+    def update(self,member) :
+        member_to_modify = self.get_by_id(member.id)
+        member_to_modify.name = member.name
+        member_to_modify.age  = member.age
+        member_to_modify.id   = member.id
+
+    def get_by_name(self,name):
+        list_for_names = []
+        for count in Members_stores.members :
+            if count.name == name :
+                list_for_names.append(count)
+        return list_for_names
+
+
+            
+
+    
 
 
 
@@ -48,7 +62,7 @@ class Members_stores :
 
 
 #**************************************************************
-class Posts_stores : 
+class Posts_stores:
     posts = []
     last_id = 1
 
@@ -63,7 +77,7 @@ class Posts_stores :
         print("all posts")
         return Posts_stores.posts 
     
-    def get_by_id(self , id) :
+    def get_by_id(self, id) :   #static becouse when i call it in entity_exists methoud it tell me unbounded methoud and must called with member store class instance  
         for count in Posts_stores.posts :
             if count.id == id :
                 return  count 
@@ -76,7 +90,7 @@ class Posts_stores :
 
 
     def entity_exists(self, post) :
-        if Posts_stores.get_by_id(post.id) == post : 
+        if self.get_by_id(post.id) == post : 
             return "true" 
         else :
             return "false"
