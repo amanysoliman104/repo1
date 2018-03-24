@@ -39,10 +39,13 @@ class Members_stores :
             return "false"
 
     def update(self,member) :
-        member_to_modify = self.get_by_id(member.id)
-        member_to_modify.name = member.name
-        member_to_modify.age  = member.age
-        member_to_modify.id   = member.id
+        result = member
+        all_members = self.get_all()
+        for index , current_member in enumerate(all_members):
+            if current_member.id == member.id:
+                all_members[index] = member
+                break
+        return result        
 
     def get_by_name(self,name):
         list_for_names = []
@@ -50,6 +53,20 @@ class Members_stores :
             if count.name == name :
                 list_for_names.append(count)
         return list_for_names
+    '''def  get_by_name(self,name):
+
+        all_members = self.get_all()
+        for member in all_members:
+            if member.name == member_name:
+                yield member'''
+    def get_members_with_posts(self , all_posts):
+        all_members = self.get_all()
+        for current_member in all_members :
+            for current_post in all_posts :
+                if current_member.id == current_post.id :
+                    current_member.posts.append(current_post)
+
+                    
 
 
             
@@ -94,4 +111,14 @@ class Posts_stores:
             return "true" 
         else :
             return "false"
-            
+
+    def update(self,post) :
+        result = post
+        all_posts = self.get_all()
+        for index , current_post in enumerate(all_posts):
+            if current_post.id == post.id:
+                all_posts[index] = post
+                break
+        return result        
+
+      
