@@ -1,12 +1,14 @@
 import Models
 import stores
+import time 
 
 member1 = Models.Members("amany", 24)
 member2 = Models.Members("anas", 20)
 member3 = Models.Members("amany", 6)
 post1   = Models.Posts("lesson1","undarstand this lesson ")
-post2   = Models.Posts("lesson2"," not undarstand this lesson")
-post3   = Models.Posts("lesson3","very nice lesson")
+time.sleep(5)
+post2   = Models.Posts("lesson2"," not undarstand this lesson" , member1.id)
+post3   = Models.Posts("lesson3","very nice lesson" , member1.id)
 member_store = stores.Members_stores()
 member_store.add(member1)
 member_store.add(member2)
@@ -17,7 +19,11 @@ post_store.add(post2)
 post_store.add(post3)
 print member_store.entity_exists(member1)
 lists = member_store.get_by_name(member1.name)
-print lists[0].age
+print lists[0].id
+member_store.get_members_with_posts([post1,post2,post3])
+print member1.show()
+print post1.get_posts_by_date()
+print post2.get_posts_by_date()
 
 #member1.name = "mooon"
 #member1.age = 30
