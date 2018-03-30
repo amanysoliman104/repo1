@@ -2,6 +2,8 @@ import Models
 import stores
 import time 
 
+
+
 member1 = Models.Members("amany", 24)
 member2 = Models.Members("anas", 20)
 member3 = Models.Members("amany", 6)
@@ -22,17 +24,8 @@ lists = member_store.get_by_name(member1.name)
 print lists[0].id
 member_store.get_members_with_posts([post1,post2,post3])
 print member1.show()
-print post1.get_posts_by_date()
-print post2.get_posts_by_date()
+print post_store.get_posts_by_date()
 
-#member1.name = "mooon"
-#member1.age = 30
-#lists = member_store.get_by_id(1)
-#print lists.name
-#member_store.update(member1)
-
-
-#print lists.age
 
 ######################################################
 '''def create_members():

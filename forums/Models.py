@@ -11,11 +11,10 @@ class Members :
         self.id = 0 
         self.posts = []
 
-    #def __str__ (self):
-    def show(self):
+    def __str__ (self):
         print ( " name :" + str(self.name) + " age :  " + str(self.age) ) 
-        for i in self.posts :
-          print i  
+        ##for i in self.posts :
+         # print i  
         
 
 #**********************************************************
